@@ -3,7 +3,7 @@ Contributors: ChazUK
 Tags: yoast, wp-api, rest, seo
 Requires at least: 4.4
 Tested up to: 4.5.3
-Stable tag: trunk
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,6 +20,10 @@ Activate the plugin through the 'Plugins' screen in WordPress
 ...
 Profit
 == Changelog ==
+
+= 1.3.1 =
+
+Improved plugin compatibility with older PHP versions
 
 = 1.3 =
 
