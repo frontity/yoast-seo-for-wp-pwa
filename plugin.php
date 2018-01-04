@@ -198,8 +198,9 @@ class WPAPIYoastMeta {
 
 function WPAPIYoast_init() {
   if ( class_exists('WPSEO_Frontend') && class_exists('WPSEO_Replace_Vars') ) {
-		include __DIR__ . '/classes/class-wpseo-replace-vars.php';
-		include __DIR__ . '/classes/class-frontend.php';
+		$dir = plugin_dir_path( __FILE__ );
+		include $dir . '/classes/class-wpseo-replace-vars.php';
+		include $dir . '/classes/class-frontend.php';
 
 		$WPAPIYoastMeta = new WPAPIYoastMeta();
   } else {
