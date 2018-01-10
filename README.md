@@ -1,5 +1,5 @@
 
-# Yoast to REST API - WordPress plugin
+# Yoast SEO for WordPress PWA - WordPress plugin
 
 ![Yoast](Yoast_Logo_Small_RGB.png)
 
@@ -46,4 +46,4 @@ Currently updating:
 - `yoast_wpseo_twitter-description`
 - `yoast_wpseo_twitter-image`
 
-Thanks to Pablo Postigo, Tedy Warsitha and Charlie Francis for amazing contributions!
+Thanks to Niels Garve, Tedy Warsitha and Charlie Francis for amazing contributions!

@@ -1,6 +1,6 @@
-=== Yoast to REST API ===
-Contributors: Niels Garve, Pablo Postigo, Tedy Warsitha, Charlie Francis
-Tags: yoast, wp-api, rest, seo
+=== Yoast SEO for WordPress PWA ===
+Contributors: Pablo Postigo, Niels Garve, Tedy Warsitha, Charlie Francis
+Tags: yoast, wp-api, wp-pwa, seo
 Requires at least: 4.4
 Tested up to: 4.9.1
 Stable tag: trunk
@@ -11,7 +11,8 @@ Returns Yoast post or page metadata in a normal post or page request.
 
 == Description ==
 
-Returns Yoast post or page metadata in a normal post or page request. Stores the metadata in the `yoast_meta` field of the returned data.
+Makes Yoast SEO settings available to WordPress PWA using the REST API.
+Returns Yoast post or page metadata in a normal post or page REST API request. Stores the metadata in the `yoast_meta` field of the returned data.
 
 ```
 {
@@ -60,6 +61,10 @@ Thanks to Pablo Postigo, Tedy Warsitha and Charlie Francis for amazing contribut
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
 == Changelog ==
+
+= 1.5.0 =
+- Merged contributions from Niels Garve fork (https://github.com/niels-garve/yoast-to-rest-api)
+- Changed name to "Yoast SEO for WordPress PWA"
 
 = 1.4.1 =
 

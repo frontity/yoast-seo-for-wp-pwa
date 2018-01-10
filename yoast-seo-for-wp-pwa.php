@@ -3,12 +3,11 @@
 add_action( 'plugins_loaded', 'WPAPIYoast_init' );
 
 /**
- * Plugin Name: Yoast to REST API
- * Description: Adds Yoast fields to page and post metadata to WP REST API responses
- * Author: Niels Garve, Pablo Postigo, Tedy Warsitha, Charlie Francis
- * Author URI: https://github.com/niels-garve
- * Version: 1.4.1
- * Plugin URI: https://github.com/niels-garve/yoast-to-rest-api
+ * Plugin Name: Yoast SEO for WordPress PWA
+ * Description: Makes Yoast SEO settings available to WordPress PWA using the REST API.
+ * Author: WordPress PWA Team, Pablo Postigo, Niels Garve, Tedy Warsitha, Charlie Francis
+ * Version: 1.5.0
+ * Plugin URI: https://github.com/wp-pwa/yoast-seo-for-wp-pwa
  */
 class Yoast_To_REST_API {
 
@@ -33,6 +32,8 @@ class Yoast_To_REST_API {
 
 	function __construct() {
 		add_action( 'rest_api_init', array( $this, 'add_yoast_data' ) );
+
+		include __DIR__ . '/utils/get_site_info.php';
 	}
 
 	function add_yoast_data() {
@@ -181,6 +182,7 @@ class Yoast_To_REST_API {
 function WPAPIYoast_init() {
 	if ( class_exists( 'WPSEO_Frontend' ) ) {
 		include __DIR__ . '/classes/class-wpseo-frontend-to-rest-api.php';
+		include __DIR__ . '/classes/class-wpseo-replace-vars.php';
 
 		$yoast_To_REST_API = new Yoast_To_REST_API();
 	} else {
@@ -191,6 +193,6 @@ function WPAPIYoast_init() {
 function wpseo_not_loaded() {
 	printf(
 		'<div class="error"><p>%s</p></div>',
-		__( '<b>Yoast to REST API</b> plugin not working because <b>Yoast SEO</b> plugin is not active.' )
+		__( '<b>Yoast SEO for WordPress PWA</b> plugin not working because <b>Yoast SEO</b> plugin is not active.' )
 	);
 }
