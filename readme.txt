@@ -62,6 +62,9 @@ Thanks to Pablo Postigo, Tedy Warsitha and Charlie Francis for amazing contribut
 
 == Changelog ==
 
+= 1.5.1=
+- Main file renamed to plugin.php
+
 = 1.5.0 =
 - Merged contributions from Niels Garve fork (https://github.com/niels-garve/yoast-to-rest-api)
 - Changed name to "Yoast SEO for WordPress PWA"
