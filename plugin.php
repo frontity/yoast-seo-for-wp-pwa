@@ -6,7 +6,7 @@ add_action( 'plugins_loaded', 'WPAPIYoast_init' );
  * Plugin Name: Yoast SEO for WordPress PWA
  * Description: Makes Yoast SEO settings available to WordPress PWA using the REST API.
  * Author: WordPress PWA Team, Pablo Postigo, Niels Garve, Tedy Warsitha, Charlie Francis
- * Version: 1.5.0
+ * Version: 1.5.1
  * Plugin URI: https://github.com/wp-pwa/yoast-seo-for-wp-pwa
  */
 class Yoast_To_REST_API {
