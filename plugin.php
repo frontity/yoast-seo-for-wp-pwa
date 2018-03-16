@@ -57,6 +57,23 @@ class Yoast_To_REST_API {
 			)
 		);
 
+		// Public custom post types
+		$types = get_post_types( array(
+			'public'   => true,
+			'_builtin' => false
+		));
+
+		foreach ( $types as $key => $type ) {
+			register_rest_field( $type,
+				'yoast_meta',
+				array(
+					'get_callback'    => array( $this, 'wp_api_encode_yoast' ),
+					'update_callback' => array( $this, 'wp_api_update_yoast' ),
+					'schema'          => null,
+				)
+			);
+		}
+
 		// Category
 		register_rest_field( 'category',
 			'yoast_meta',
@@ -77,18 +94,16 @@ class Yoast_To_REST_API {
 			)
 		);
 
-		// Public custom post types
-		$types = get_post_types( array(
+		$taxonomies = get_taxonomies(array(
 			'public'   => true,
 			'_builtin' => false
-		) );
-
-		foreach ( $types as $key => $type ) {
+		));
+		foreach ( $taxonomies as $key => $type ) {
 			register_rest_field( $type,
 				'yoast_meta',
 				array(
-					'get_callback'    => array( $this, 'wp_api_encode_yoast' ),
-					'update_callback' => array( $this, 'wp_api_update_yoast' ),
+					'get_callback'    => array( $this, 'wp_api_encode_yoast_tag' ),
+					'update_callback' => null,
 					'schema'          => null,
 				)
 			);
