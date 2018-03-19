@@ -94,6 +94,18 @@ class Yoast_To_REST_API {
 			)
 		);
 
+		// Latest
+		// add_filter('rest_prepare_latest', function($data) {
+		//
+		// 	$data['yoast_meta'] = 'hi';
+		// 	$yoast_meta = array(
+		// 		'yoast_wpseo_title'     => $wpseo_frontend->get_content_title(),
+		// 		'yoast_wpseo_metadesc'  => $wpseo_frontend->metadesc( false ),
+		// 		'yoast_wpseo_canonical' => $wpseo_frontend->canonical( false ),
+		// 	);
+		// 	return $data;
+		// });
+
 		$taxonomies = get_taxonomies(array(
 			'public'   => true,
 			'_builtin' => false
@@ -144,8 +156,6 @@ class Yoast_To_REST_API {
 
 		$yoast_meta = array(
 			'yoast_wpseo_title'     => $wpseo_frontend->get_content_title(),
-			'yoast_wpseo_metadesc'  => $wpseo_frontend->metadesc( false ),
-			'yoast_wpseo_canonical' => $wpseo_frontend->canonical( false ),
 		);
 
 		wp_reset_query();
@@ -159,7 +169,6 @@ class Yoast_To_REST_API {
 
 		$yoast_meta = array(
 			'yoast_wpseo_title'    => $wpseo_frontend->get_taxonomy_title(),
-			'yoast_wpseo_metadesc' => $wpseo_frontend->metadesc( false ),
 		);
 
 		return (array) $yoast_meta;
