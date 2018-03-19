@@ -20,4 +20,7 @@ class WPSEO_Frontend_To_REST_API extends WPSEO_Frontend {
 
 		return self::$instance;
 	}
+	public function public_get_post_type_archive_title() {
+		return $this->get_post_type_archive_title('', '');
+	}
 }
