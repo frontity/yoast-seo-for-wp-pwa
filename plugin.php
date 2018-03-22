@@ -3,7 +3,7 @@
  * Plugin Name: Yoast SEO for WordPress PWA
  * Description: Makes Yoast SEO settings available to WordPress PWA using the REST API.
  * Author: Pablo Postigo, Luis Herranz, Niels Garve, Tedy Warsitha, Charlie Francis
- * Version: 1.6.0
+ * Version: 1.6.1
  * Plugin URI: https://github.com/wp-pwa/yoast-seo-for-wp-pwa
  */
 
@@ -46,6 +46,9 @@ class Yoast_To_REST_API {
 	}
 
 	function get_post_type_title($post_type) {
+		if (intval(substr(WPSEO_VERSION, 0, 1)) < 7) {
+			if ($post_type === 'page' || $post_type === 'attachment') return $post_type;
+		}
 		$wpseo_frontend = WPSEO_Frontend_To_REST_API::get_instance();
 		$args = array('post_type' => $post_type);
 		$GLOBALS['wp_query'] = new WP_Query($args);
@@ -74,7 +77,8 @@ class Yoast_To_REST_API {
 		if ($data['id'] === 'post') {
 			$title = $this->get_home_title();
 		} else {
-			$title = $this->get_post_type_title($data['id']);
+			$id = $data['id'];
+			$title = $this->get_post_type_title($id);
 		}
 		$data['yoast_meta'] = array(
 			'title' => $title
